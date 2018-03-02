@@ -1,17 +1,37 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>
+      Welcome
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h1> Computer ASL Translation </h1>
+  <button ion-button round color="danger" class="record" (click)="listenForSpeech" (click)="onRecordButtonPressed()">\u25A0</button>
+  <button ion-button round color="danger" class="stop" (click)="onStopButtonPressed()">\u25CF</button>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    Push the button above to start recording speech!
   </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
+
+  <button ion-button round color="primary"(click)="goToLibraryPage()">Library</button>
+  <p color class="message">
+    Push the button above to access saved messages!
   </p>
-</ion-content>
+  <button ion-button round color="primary"(click)="goToAboutPage()">About</button>
+  <p color class="message">
+    Push the button above to learn about us!
+  </p>
+
+  <ion-card>
+    <ion-card-content *ngFor="let speech of speechList">
+      <p>{{speech}}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+</ion-content> 
+   
+  
